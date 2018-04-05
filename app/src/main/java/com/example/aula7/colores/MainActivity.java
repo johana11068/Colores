@@ -2,6 +2,9 @@ package com.example.aula7.colores;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,5 +35,27 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Hola Mundo", Toast.LENGTH_SHORT).show();//msn alerta
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_index, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.id_item_menu_1:
+                Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.id_item_menu_2:
+                Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
